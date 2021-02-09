@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D4FDF7"
+    android:orientation="vertical"
+    tools:context=".CreateMessageActivity">
+
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:layout_marginLeft="5dp">-->
+
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/create_message_textview"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:paddingTop="8dp"-->
+    <!--            android:text="Mensagem"-->
+    <!--            android:textSize="15sp"-->
+    <!--            android:textStyle="bold" />-->
+
+    <!--    </LinearLayout>-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="39"
+            app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Body1"
+
+
+            app:counterTextAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/add_message_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="2"
+                android:ems="10"
+                android:focusableInTouchMode="true"
+                android:hint="Digite sua mensagem"
+                android:inputType="text"
+                android:lines="1"
+                android:maxLength="39"
+                android:maxLines="2"
+                android:minLines="1"
+                android:paddingTop="8sp"
+
+                android:selectAllOnFocus="false"
+                android:text=""
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="15dp"
+                android:textStyle="normal"
+
+                android:typeface="sans" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight=".35"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/spinner"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:baselineAligned="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight=".35"
+            android:orientation="vertical">
+
+
+            <Spinner
+                android:id="@+id/spinner_color"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:baselineAligned="false"
+                android:paddingLeft="5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".30"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/textcolor_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center|bottom"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:onClick="openColorPicker"
+
+                android:paddingRight="5dp"
+                android:text="cor txt" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/darker_gray" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/tamanho_fonte_textView"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginLeft="20dp"-->
+        <!--            android:text="Letras:"-->
+        <!--            android:textSize="15sp"-->
+        <!--            android:textStyle="bold" />-->
+
+
+        <RadioGroup
+            android:id="@+id/font_size_radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checkedButton="@id/big_font_radioButton"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/big_font_radioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:onClick="defineFontSize"
+                android:text="Letras Grandes"
+                android:textSize="15dp"
+
+                />
+
+            <RadioButton
+                android:id="@+id/small_font_radioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:onClick="defineFontSize"
+                android:text="Letras  Pequenas"
+                android:textSize="15dp" />
+        </RadioGroup>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/italic_checkBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dip"
+                android:layout_weight="1"
+                android:enabled="true"
+                android:onClick="onCheckboxClicked"
+                android:text="Itálico"
+                android:textSize="15sp" />
+
+            <CheckBox
+                android:id="@+id/bold_checkBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dip"
+                android:layout_weight="1"
+                android:enabled="true"
+                android:onClick="onCheckboxClicked"
+                android:text="Negrito"
+                android:textSize="15dp" />
+
+            <CheckBox
+                android:id="@+id/multiline_checkBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dip"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:onClick="onCheckboxClicked"
+                android:text="2 linhas"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout><!--Division line only -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/darker_gray" />
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/visual_effects_textView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_column="0"-->
+    <!--        android:layout_marginLeft="15sp"-->
+    <!--        android:text="Modos de Exibição"-->
+    <!--        android:textSize="15sp"-->
+    <!--        android:textStyle="bold" />-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight=".3"
+            android:checkedButton="@id/scroll_radioButton"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/scroll_radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:onClick="defineVisualEffects"
+                android:text="Texto Corrido"
+                android:textSize="15dp" />
+
+
+            <RadioButton
+                android:id="@+id/static_radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:onClick="defineVisualEffects"
+                android:text="Texto Estático"
+                android:textSize="15dp" />
+
+            <RadioButton
+                android:id="@+id/blink_radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:onClick="defineVisualEffects"
+                android:text="Texto Piscante"
+                android:textSize="15dp" />
+
+
+        </RadioGroup>
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/speedScroll_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:text="Velocidade da mensagem:"
+                    android:textStyle="bold" />
+
+                <SeekBar
+                    android:id="@+id/speed_seekBar"
+                    style="@style/Widget.AppCompat.SeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:max="7"
+                    android:min="0"
+                    android:progress="1" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/presentDuration_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:text="Duração da mensagem: "
+                    android:textStyle="bold" />
+
+                <SeekBar
+                    android:id="@+id/duration_seekBar"
+                    style="@style/Widget.AppCompat.SeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:max="31"
+                    android:min="0"
+                    android:progress="5" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/blink_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:text="Intervalo On/Off, em seg.:"
+                    android:textStyle="bold" />
+
+                <SeekBar
+                    android:id="@+id/intervalFlash_seekBar"
+                    style="@style/Widget.AppCompat.SeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:fadeScrollbars="true"
+                    android:max="7"
+                    android:min="0"
+                    android:progress="1" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+
+        <Button
+            android:id="@+id/send_message_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:soundEffectsEnabled="true"
+            android:text="Enviar" />
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:padding="5dp"
+            android:soundEffectsEnabled="true"
+            android:text="Apagar" />
+    </LinearLayout>
+
+
+</LinearLayout>

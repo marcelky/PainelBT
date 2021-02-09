@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/status_layout"
+        android:background="@color/myPanelDefaultBackground"
+        android:paddingLeft="40dp"
+        android:paddingTop="8dp"
+        android:paddingRight="40dp"
+        >
+
+
+        <TextView
+            android:id="@+id/bluetoothStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/togglebutton_off"
+            android:maxLines="1"
+            android:text="@string/bluetooth_status"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+
+
+            />
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/common_config_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/status_layout"
+        android:layout_alignParentLeft="true"
+
+        android:background="@color/myPanelDefaultBackground"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="40dp"
+        android:paddingTop="8dp"
+        android:paddingRight="40dp"
+        android:paddingBottom="4dp">
+
+
+        <Button
+            android:id="@+id/send_databutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="sendDataBT"
+            android:text="@string/nova_mensagem" />
+
+        <Button
+            android:id="@+id/delete_message_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="listMessages"
+            android:text="@string/Listar_mensagens" />
+
+        <Button
+            android:id="@+id/save_config_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="saveConfigRom"
+            android:text="@string/salvar_config" />
+
+        <Switch
+            android:id="@+id/show_messageNum_switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/togglebutton_selector"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:text="Exibir ordem das Mensagens" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/header_listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/common_config_layout"
+        android:gravity="center"
+        android:text="Mensagens configuradas:"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:textColor="@color/design_default_color_primary_dark"
+        android:visibility="visible" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/msgid_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_linearLayout"
+        android:layout_below="@id/header_listView"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="8dp"
+        android:scrollbars="vertical">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <LinearLayout
+
+        android:id="@+id/bottom_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/showdata_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/myPanelDefaultBackground"
+            android:orientation="vertical">
+
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/status_layout"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:layout_marginLeft="20dp"-->
+            <!--                android:layout_marginRight="20dp"-->
+            <!--                android:layout_marginBottom="8dp"-->
+            <!--                android:orientation="horizontal">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="0.1"-->
+            <!--                    android:ellipsize="end"-->
+            <!--                    android:maxLines="1"-->
+            <!--                    android:text="@string/status"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    android:textSize="15dp"/>-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/bluetoothStatus"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_alignTop="@+id/checkboxLED1"-->
+            <!--                    android:layout_centerHorizontal="true"-->
+            <!--                    android:layout_weight="0.9"-->
+            <!--                    android:ellipsize="end"-->
+            <!--                    android:maxLines="1"-->
+            <!--                    android:textSize="15dp"-->
+            <!--                    android:background="@drawable/togglebutton_off"-->
+            <!--                    android:text="@string/bluetooth_status" />-->
+
+            <!--            </LinearLayout>-->
+        </LinearLayout>
+
+        <!--        <LinearLayout-->
+
+        <!--            android:id="@+id/ocasional_config_layout"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="1dp"-->
+        <!--            android:background="#D4FDF7"-->
+        <!--            android:gravity="center_horizontal"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:paddingLeft="40dp"-->
+        <!--            android:paddingTop="8dp"-->
+        <!--            android:paddingRight="40dp"-->
+        <!--            android:paddingBottom="8dp">-->
+
+        <!--            <Button-->
+        <!--                android:id="@+id/config_bt"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:layout_marginEnd="10dp"-->
+        <!--                android:layout_marginRight="5dp"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:onClick="launchConfigBT"-->
+        <!--                android:text="Bluetooth" />-->
+
+        <!--            <Button-->
+        <!--                android:id="@+id/reset_factory_button"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:layout_marginStart="10dp"-->
+        <!--                android:layout_marginLeft="5dp"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:onClick="factoryReset"-->
+        <!--                android:text="Reset" />-->
+
+
+        <!--        </LinearLayout>-->
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BluetoothActivity">
+
+    <LinearLayout
+        android:id="@+id/showdata_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/myPanelDefaultBackground"
+        android:orientation="vertical"
+
+
+        >
+
+        <TextView
+            android:id="@+id/bluetoothStatus"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignTop="@+id/checkboxLED1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/togglebutton_off"
+            android:gravity="center"
+            android:lines="1"
+            android:text="@string/bluetooth_status"
+            android:textSize="15dp" />
+
+        <Switch
+            android:id="@+id/on_off_bluetooth_switch1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/togglebutton_selector"
+            android:gravity="center"
+            android:text="Liga/Desliga Bluetooth"
+            android:textSize="15dp"
+            android:paddingBottom="5dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/showdata_layout"
+        android:background="@color/myPanelDefaultBackground"
+        android:clickable="true"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="Selecione um dispositivo, via botões abaixo"
+            android:textSize="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingTop="8dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="8dp">
+
+            <Button
+                android:id="@+id/PairedBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/scan"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="@string/show_paired_devices"
+                android:textSize="12dp" />
+
+
+            <Button
+                android:id="@+id/discover"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="@string/discover_new_devices"
+                android:textSize="12dp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/header_deviceListtextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttons_layout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Selecione o dispositivo BT (HC-05) para se conectar"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <ListView
+        android:id="@+id/devicesListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header_deviceListtextView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="16dp"
+        android:choiceMode="singleChoice" />
+
+
+</RelativeLayout>
